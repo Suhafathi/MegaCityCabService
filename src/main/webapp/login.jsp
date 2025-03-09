@@ -187,6 +187,7 @@
                     <option value="driver">Driver</option>
                 </select>
             </div>
+            //login form
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>

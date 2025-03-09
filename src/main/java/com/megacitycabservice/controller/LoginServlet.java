@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
-
+//user selection
         try (Connection conn = com.megacitycabservice.service.DatabaseConnection.getConnection()) {
             String query = "SELECT * FROM " + tableName + " WHERE " + usernameColumn + " = ? AND password = ?";
             PreparedStatement stmt = conn.prepareStatement(query);

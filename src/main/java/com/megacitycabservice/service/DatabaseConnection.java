@@ -8,7 +8,7 @@ public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/megacitycabdb";
     private static final String USER = "root";
     private static final String PASSWORD = "admin1234@";
-
+//DB
     public static Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
