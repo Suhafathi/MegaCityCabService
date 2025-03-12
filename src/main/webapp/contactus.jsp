@@ -216,5 +216,42 @@
     </script>
 </c:if>
 
+
+<script>
+
+    function validateFeedbackForm() {
+        const email = document.querySelector("input[name='email']").value.trim();
+
+
+        if (!email.includes("@")) {
+            alert("Incorrect email! Please include an @ symbol.");
+            return false;
+        }
+
+        return true;
+    }
+
+
+    document.querySelector("form").onsubmit = function(event) {
+        if (!validateFeedbackForm()) {
+            event.preventDefault();
+        }
+    };
+
+
+    <c:if test="${param.success != null}">
+    <script>
+        alert("Thank you for your feedback!");
+</script>
+</c:if>
+
+// Optional: Handle error parameter (if added by servlet)
+<c:if test="${param.error != null}">
+    <script>
+        alert("An error occurred while submitting your feedback. Please try again.");
+    </script>
+</c:if>
+</script>
+
 </body>
 </html>

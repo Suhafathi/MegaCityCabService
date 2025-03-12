@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<h1 class="message">✅ Payment Successful!</h1>
+<h1 class="message"> Payment Successful!</h1>
 <p>Thank you for your payment. Your booking is confirmed.</p>
 
 <a href="customerDashboard" class="button">Go to Dashboard</a>

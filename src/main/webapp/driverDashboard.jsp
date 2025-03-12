@@ -74,6 +74,14 @@
     }
     </style>
 </head>
+<c:if test="${not empty sessionScope.username}">
+    <script>
+        alert("Login Successful! Welcome, ${sessionScope.username} (Driver)");
+
+        <c:remove var="username" scope="session"/>
+        <c:remove var="role" scope="session"/>
+    </script>
+</c:if>
 <body>
 
 <h1>Welcome, <%= session.getAttribute("username") %></h1>

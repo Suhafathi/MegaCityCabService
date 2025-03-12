@@ -10,7 +10,7 @@ public class Customer {
     private String username;
     private String password;
 
-    // Constructor
+
     public Customer(int customerID, String name, String address, String nic, String contactNumber, String email, String username, String password) {
         this.customerID = customerID;
         this.name = name;
@@ -22,7 +22,7 @@ public class Customer {
         this.password = password;
     }
 
-    // Getters and Setters
+
     public int getCustomerID() {
         return customerID;
     }

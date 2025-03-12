@@ -7,8 +7,8 @@
         form { width: 400px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; }
         label { font-weight: bold; margin-top: 10px; display: block; }
         input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
-        button { margin-top: 15px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #45a049; }
+        button { margin-top: 15px; padding: 10px 20px; background-color: #b59000; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #b59000; }
     </style>
 </head>
 <body>

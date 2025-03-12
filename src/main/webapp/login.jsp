@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +42,6 @@
             border-radius: 5px;
         }
 
-
         .login-container {
             display: flex;
             height: 80%;
@@ -50,7 +51,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-
         .left-side {
             background-color: #000;
             flex: 1;
@@ -59,7 +59,6 @@
             align-items: center;
             position: relative;
         }
-
 
         .right-side {
             flex: 1;
@@ -71,9 +70,6 @@
             flex-direction: column;
         }
 
-
-
-
         .jeep-image {
             position: absolute;
             left: 50%;
@@ -84,8 +80,6 @@
             object-fit: contain;
             opacity: 0.9;
         }
-
-
 
         .right-side h2 {
             text-align: center;
@@ -140,7 +134,6 @@
             text-decoration: underline;
         }
 
-
         @media (max-width: 768px) {
             .login-container {
                 flex-direction: column;
@@ -153,20 +146,25 @@
 </head>
 <body>
 
+<c:if test="${not empty errorMessage}">
+    <script>
+        alert("${errorMessage}");
+    </script>
+</c:if>
+
 <div class="navbar">
     <a href="index.jsp">Home</a>
     <a href="about-us.jsp">About Us</a>
     <a href="services.jsp">Services</a>
     <a href="contactus.jsp">Contact</a>
 </div>
+
 <div class="login-container">
 
     <div class="left-side">
-
         <img class="jeep-image" src="images/jeep.png" alt="Cab Image">
     </div>
 
-    <
     <div class="right-side">
         <h2>Login</h2>
         <form action="login" method="post">
@@ -187,16 +185,20 @@
                     <option value="driver">Driver</option>
                 </select>
             </div>
-            //login form
             <div class="form-group">
                 <button type="submit">Login</button>
             </div>
         </form>
+
         <div class="register-link">
-            <p>Don't have an account? <a href="registerCustomer.jsp">Register as Customer</a> |
+            <p>Don't have an account? <a href="registerCustomer.jsp">Register as Customer</a>
                 </p>
         </div>
     </div>
 </div>
+
+
+
+
 </body>
 </html>

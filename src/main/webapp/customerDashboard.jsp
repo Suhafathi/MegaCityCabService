@@ -67,7 +67,10 @@
         }
     </style>
 </head>
+
 <body>
+
+
 <div class="navbar">
     <a href="index.jsp">Home</a>
     <a href="about-us.jsp">About Us</a>
@@ -200,6 +203,21 @@
         </td>
     </tr>
     <% } %>
+
+    <c:if test="${not empty sessionScope.username}">
+        <script>
+            alert("Login Successful! Welcome, ${sessionScope.username} (Customer)");
+
+            console.log("Role from session: ${sessionScope.role}");
+
+            <c:remove var="username" scope="session"/>
+            <c:remove var="role" scope="session"/>
+        </script>
+    </c:if>
+    <!-- Debug: Check if script runs even if condition fails -->
+    <script>
+        console.log("Customer Dashboard loaded. Session username: ${sessionScope.username}, Role: ${sessionScope.role}");
+    </script>
     </tbody>
 </table>
 <% } else { %>

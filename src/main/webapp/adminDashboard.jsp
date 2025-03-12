@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +90,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #2e2c2c;
+            background-color: #ffffff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -97,7 +98,7 @@
         .header h1 {
             margin: 0;
             font-size: 24px;
-            color: #ffffff;
+            color: #252323;
         }
 
         .header .user-info {
@@ -221,7 +222,10 @@
 
     </style>
 </head>
+
 <body>
+
+
 
 
 <div class="sidebar">
@@ -233,6 +237,8 @@
         <li><a href="calculateBill">View Payments</a></li>
         <li><a href="logout">Logout</a></li>
     </ul>
+
+
 </div>
 
 <div class="navbar">
@@ -297,6 +303,21 @@
 <div class="footer">
     <p>&copy; 2025 Mega City Cab Service. All rights reserved.</p>
 </div>
+
+<c:if test="${not empty sessionScope.username}">
+    <script>
+        alert("Login Successful! Welcome, ${sessionScope.username} (Admin)");
+        // Debug: Check if role is set
+        console.log("Role from session: ${sessionScope.role}");
+        // Remove session attributes to prevent repeated alerts
+        <c:remove var="username" scope="session"/>
+        <c:remove var="role" scope="session"/>
+    </script>
+</c:if>
+<!-- Debug: Check if script runs even if condition fails -->
+<script>
+    console.log("Admin Dashboard loaded. Session username: ${sessionScope.username}, Role: ${sessionScope.role}");
+</script>
 
 </body>
 </html>

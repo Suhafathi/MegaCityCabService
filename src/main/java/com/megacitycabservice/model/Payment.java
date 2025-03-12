@@ -15,7 +15,7 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    // Getters and setters
+
     public int getPaymentId() { return paymentId; }
     public int getBookingNumber() { return bookingNumber; }
     public double getTotalAmount() { return totalAmount; }

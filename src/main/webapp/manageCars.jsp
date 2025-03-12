@@ -48,7 +48,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
-            color: white;
+            color: rgba(255, 255, 255, 0);
         }
 
         th, td {
@@ -63,7 +63,7 @@
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: rgba(249, 249, 249, 0);
         }
 
         a {
@@ -89,7 +89,7 @@
         }
 
         .status-available {
-            color: green;
+            color: #b59000;
             font-weight: bold;
         }
 
@@ -120,7 +120,7 @@
 <body>
 <div class="navbar">
     <a href="manageCars">Cars</a>
-    <a href="manageDrivers.jsp">Drivers</a>
+    <a href="manageDrivers">Drivers</a>
     <a href="manageBookings">View Bookings</a>
     <a href="calculateBill">Payments</a>
     <a href="logout">Logout</a>

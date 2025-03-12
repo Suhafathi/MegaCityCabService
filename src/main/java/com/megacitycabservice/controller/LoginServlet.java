@@ -16,7 +16,6 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         String role = request.getParameter("role");
 
-
         String hashedPassword = hashPassword(password);
 
         String tableName = getTableName(role);
@@ -27,29 +26,38 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
             return;
         }
-//user selection
+
         try (Connection conn = com.megacitycabservice.service.DatabaseConnection.getConnection()) {
-            String query = "SELECT * FROM " + tableName + " WHERE " + usernameColumn + " = ? AND password = ?";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, username);
-            stmt.setString(2, hashedPassword);
 
-            ResultSet rs = stmt.executeQuery();
+            String checkUsernameQuery = "SELECT * FROM " + tableName + " WHERE " + usernameColumn + " = ?";
+            PreparedStatement checkStmt = conn.prepareStatement(checkUsernameQuery);
+            checkStmt.setString(1, username);
+            ResultSet rs = checkStmt.executeQuery();
+
             if (rs.next()) {
-                // Successful login
-                HttpSession session = request.getSession();
-                session.setAttribute("username", username);
-                session.setAttribute("role", role);
 
-                if ("admin".equals(role)) {
-                    response.sendRedirect("adminDashboard.jsp");
-                } else if ("customer".equals(role)) {
-                    response.sendRedirect("customerDashboard");
-                } else if ("driver".equals(role)) {
-                    response.sendRedirect("driverDashboard");
+                String storedPassword = rs.getString("password");
+                if (storedPassword.equals(hashedPassword)) {
+
+                    HttpSession session = request.getSession();
+                    session.setAttribute("username", username);
+                    session.setAttribute("role", role);
+
+                    if ("admin".equals(role)) {
+                        response.sendRedirect("adminDashboard.jsp");
+                    } else if ("customer".equals(role)) {
+                        response.sendRedirect("customerDashboard");
+                    } else if ("driver".equals(role)) {
+                        response.sendRedirect("driverDashboard");
+                    }
+                } else {
+
+                    request.setAttribute("errorMessage", "Password is incorrect!");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                 }
             } else {
-                request.setAttribute("errorMessage", "Invalid username or password!");
+
+                request.setAttribute("errorMessage", "Username is incorrect!");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
         } catch (SQLException e) {
@@ -57,7 +65,6 @@ public class LoginServlet extends HttpServlet {
             response.getWriter().println("Database connection error: " + e.getMessage());
         }
     }
-
 
     private String getTableName(String role) {
         switch (role.toLowerCase()) {
@@ -68,7 +75,6 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
-
     private String getUsernameColumn(String role) {
         switch (role.toLowerCase()) {
             case "admin": return "username";
@@ -77,7 +83,6 @@ public class LoginServlet extends HttpServlet {
             default: return "username";
         }
     }
-
 
     private String hashPassword(String password) {
         try {

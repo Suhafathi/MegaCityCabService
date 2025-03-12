@@ -21,7 +21,8 @@ public class ProcessBookingServlet extends HttpServlet {
         String username = (String) session.getAttribute("username");
 
         if (username == null) {
-            response.getWriter().println("❌ Error: User is not logged in!");
+            session.setAttribute("errorMessage", "You must be logged in to book a cab!");
+            response.sendRedirect("login.jsp");
             return;
         }
 

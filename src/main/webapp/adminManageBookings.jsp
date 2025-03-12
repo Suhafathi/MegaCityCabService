@@ -106,7 +106,7 @@
 
 <div class="navbar">
   <a href="manageCars">Cars</a>
-  <a href="manageDrivers.jsp">Drivers</a>
+  <a href="manageDrivers">Drivers</a>
   <a href="manageBookings">View Bookings</a>
   <a href="calculateBill">Payments</a>
   <a href="logout">Logout</a>

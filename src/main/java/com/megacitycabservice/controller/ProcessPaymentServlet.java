@@ -54,14 +54,14 @@ public class ProcessPaymentServlet extends HttpServlet {
             System.out.println("🔹 Debug: Booking Number = " + bookingNumber);
             System.out.println("🔹 Debug: Total Amount = " + totalAmount);
 
-            // ✅ Insert into payments table
+
             paymentStmt.setInt(1, bookingNumber);
             paymentStmt.setDouble(2, totalAmount);  // ✅ Ensure it's properly set
 
             int paymentInserted = paymentStmt.executeUpdate();
             System.out.println("🔹 Debug: Payment Inserted = " + paymentInserted);
 
-            // ✅ Update booking table
+
             updateStmt.setInt(1, bookingNumber);
             int bookingUpdated = updateStmt.executeUpdate();
             System.out.println("🔹 Debug: Booking Updated = " + bookingUpdated);

@@ -4,7 +4,8 @@
     <title>Booking Details</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px;
-        background-color: #1d1f22}
+            background-color: #1d1f22}
+        h1 {color: white}
         form { width: 400px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; }
         label { font-weight: bold; margin-top: 10px; display: block; }
         input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
