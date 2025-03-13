@@ -26,7 +26,7 @@ public class Driver {
         this.status = status;
     }
 
-    // Getters and Setters
+
     public int getDriverID() { return driverID; }
     public String getName() { return name; }
     public int getAge() { return age; }

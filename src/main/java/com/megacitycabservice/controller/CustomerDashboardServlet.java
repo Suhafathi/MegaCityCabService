@@ -70,7 +70,7 @@ public class CustomerDashboardServlet extends HttpServlet {
         List<Map<String, String>> bookings = new ArrayList<>();
         String query = "SELECT b.booking_number, b.CarID, b.DriverID, c.Model AS CarModel, d.Name AS DriverName, " +
                 "b.PickupLocation, b.DropoffLocation, b.BookingDate, b.PaymentMethod, b.PaymentStatus, " +
-                "b.Distance, c.RentalPricePerKm " + // ✅ Fetch Rental Price & Distance
+                "b.Distance, c.RentalPricePerKm " +
                 "FROM booking b " +
                 "JOIN car c ON b.CarID = c.CarID " +
                 "JOIN driver d ON b.DriverID = d.DriverID " +

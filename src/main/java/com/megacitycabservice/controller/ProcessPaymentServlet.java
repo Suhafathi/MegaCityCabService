@@ -56,7 +56,7 @@ public class ProcessPaymentServlet extends HttpServlet {
 
 
             paymentStmt.setInt(1, bookingNumber);
-            paymentStmt.setDouble(2, totalAmount);  // ✅ Ensure it's properly set
+            paymentStmt.setDouble(2, totalAmount);
 
             int paymentInserted = paymentStmt.executeUpdate();
             System.out.println("🔹 Debug: Payment Inserted = " + paymentInserted);

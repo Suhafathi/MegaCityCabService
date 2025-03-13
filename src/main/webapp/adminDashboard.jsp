@@ -307,14 +307,9 @@
 <c:if test="${not empty sessionScope.username}">
     <script>
         alert("Login Successful! Welcome, ${sessionScope.username} (Admin)");
-        // Debug: Check if role is set
-        console.log("Role from session: ${sessionScope.role}");
-        // Remove session attributes to prevent repeated alerts
-        <c:remove var="username" scope="session"/>
-        <c:remove var="role" scope="session"/>
     </script>
 </c:if>
-<!-- Debug: Check if script runs even if condition fails -->
+
 <script>
     console.log("Admin Dashboard loaded. Session username: ${sessionScope.username}, Role: ${sessionScope.role}");
 </script>

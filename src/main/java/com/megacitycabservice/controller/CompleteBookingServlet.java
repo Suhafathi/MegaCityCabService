@@ -24,8 +24,7 @@ public class CompleteBookingServlet extends HttpServlet {
         }
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            conn.setAutoCommit(false); // Start transaction
-
+            conn.setAutoCommit(false);
 
             String updateBookingQuery = "UPDATE booking SET Status = 'Completed' WHERE booking_number = ?";
             try (PreparedStatement stmt = conn.prepareStatement(updateBookingQuery)) {

@@ -78,8 +78,6 @@
     <script>
         alert("Login Successful! Welcome, ${sessionScope.username} (Driver)");
 
-        <c:remove var="username" scope="session"/>
-        <c:remove var="role" scope="session"/>
     </script>
 </c:if>
 <body>
@@ -88,7 +86,7 @@
 
 
 <div style="text-align: center; margin-top: 20px;">
-    <a href="login.jsp" class="back-button">Back to Login</a>
+    <a href="login.jsp" class="back-button">Logout</a>
 </div>
 
 
@@ -165,6 +163,7 @@
         <p style="text-align: center; color: red;">No active bookings.</p>
     </c:otherwise>
 </c:choose>
+
 
 </body>
 </html>

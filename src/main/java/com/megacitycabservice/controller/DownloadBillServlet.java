@@ -76,11 +76,11 @@ public class DownloadBillServlet extends HttpServlet {
             contentStream.newLineAtOffset(100, 670);
             contentStream.showText("Booking Number: " + bookingID);
             contentStream.newLineAtOffset(0, -20);
-            contentStream.showText("Customer Name: " + customerName);  // ✅ Show Name
+            contentStream.showText("Customer Name: " + customerName);
             contentStream.newLineAtOffset(0, -20);
-            contentStream.showText("Driver Name: " + driverName);      // ✅ Show Name
+            contentStream.showText("Driver Name: " + driverName);
             contentStream.newLineAtOffset(0, -20);
-            contentStream.showText("Car Model: " + carModel);          // ✅ Show Model
+            contentStream.showText("Car Model: " + carModel);
             contentStream.newLineAtOffset(0, -20);
             contentStream.showText("Pickup Location: " + pickupLocation);
             contentStream.newLineAtOffset(0, -20);

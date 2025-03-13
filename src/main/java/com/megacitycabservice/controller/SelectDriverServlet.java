@@ -24,7 +24,7 @@ public class SelectDriverServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Driver> availableDrivers = new ArrayList<>();
         int carID = Integer.parseInt(request.getParameter("carID"));
-        String carModel = getCarModelById(carID); // ✅ Fetch Car Model
+        String carModel = getCarModelById(carID);
 
 
         String query = "SELECT DriverID, Name, Age, Nationality, DrivingExperience, NIC, ContactNumber, Status FROM driver WHERE Status = 'Available'";
